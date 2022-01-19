@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const { name, quote } = req.body;
   console.log(name, quote);
-  const newUser = await quotesQuery(
+  const newQuote = await quotesQuery(
     `INSERT INTO quotes (name, quote) VALUES ($1, $2) RETURNING name`,
     [name, quote]
   );
-  res.json({ success: true, message: `new user`, payload: newUser });
+  res.json({ success: true, message: `new quote`, payload: newQuote });
 });
 
 export default router;
