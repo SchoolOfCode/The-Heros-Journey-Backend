@@ -1,10 +1,8 @@
-//const { Pool } = require('pg')
 import pg from 'pg';
-// import pg from "pg"
-import { db } from '../config.js';
+// import { db } from '../config.js';
 
 const quotesPool = new pg.Pool({
-  connectionString: db.connectionstring,
+  connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
 });
 
