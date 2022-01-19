@@ -1,9 +1,16 @@
+import { getAllQuotes } from "../models/quotes";
+
 import express from "express";
 const router = express.Router();
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.json({ message: "I wish we had some information to give you ☹️" });
+
+
+//Requesting a query
+router.get("/", function (req, res) {
+  const quotes = await getAllQuotes()
+  res.json({ success: true, message: `all quotes`, payload: quotes });
 });
 
 export default router;
+
+

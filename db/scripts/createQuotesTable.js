@@ -4,7 +4,7 @@ write query that creates a table
 
 */
 
-import { quotesQuery } from "..";
+import { quotesQuery } from "../index";
 
 const sqlString = 'CREATE TABLE IF NOT EXISTS quotes (id SERIAL PRIMARY KEY, name TEXT, quote TEXT)';
 
