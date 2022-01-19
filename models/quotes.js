@@ -1,4 +1,4 @@
-import { quotesQuery } from '../db';
+import quotesQuery from '../db/index.js';
 
 //Query getting all quotes from the table
 export async function getAllQuotes() {

@@ -1,11 +1,12 @@
-import { getAllQuotes } from '../models/quotes';
+import { getAllQuotes } from '../models/quotes.js';
 import quotesQuery from '../db/index.js';
 
 import express from 'express';
+
 const router = express.Router();
 
 //Getting all quotes
-router.get('/', function (req, res) {
+router.get('/', async (req, res) => {
   const quotes = await getAllQuotes();
   res.json({ success: true, message: `all quotes`, payload: quotes });
 });
