@@ -1,13 +1,13 @@
 //const { Pool } = require('pg')
-import {Pool} from "pg"
+import pg from 'pg';
 // import pg from "pg"
+import { db } from '../config.js';
 
+const quotesPool = new pg.Pool({
+  connectionString: db.connectionstring,
+  ssl: { rejectUnauthorized: false },
+});
 
-const quotesPool = new Pool({
-    //pool allows us to link with a CloudDatabase
-  
-})
-
-export function quotesQuery(text, params) {
-return quotesPool.query(text, params);
+export default function quotesQuery(text, params) {
+  return quotesPool.query(text, params);
 }
