@@ -5,8 +5,9 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import logger from 'morgan';
 
-import quotesrouter from './routes/quotes.js';
-import datesrouter from './routes/dates.js';
+import quotesRouter from './routes/quotes.js';
+import datesRouter from './routes/dates.js';
+import passwordsRouter from './routes/passwords.js';
 
 
 const app = express();
@@ -18,7 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.use('/', quotesrouter);
-app.use('/', datesrouter);
+app.use('/', quotesRouter);
+app.use('/', datesRouter);
+app.use('/', passwordsRouter);
 
 export default app;

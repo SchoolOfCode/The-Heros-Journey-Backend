@@ -12,3 +12,7 @@ export default function quotesQuery(text, params) {
 export function datesQuery(text, params) {
   return pool.query(text, params);
 }
+
+export function passwordsQuery(text, params) {
+  return pool.query(text, params);
+}

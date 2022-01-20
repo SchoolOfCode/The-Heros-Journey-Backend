@@ -3,16 +3,16 @@ import datesQuery from '../db/index.js';
 
 import express from 'express';
 
-const datesrouter = express.Router();
+const datesRouter = express.Router();
 
 
-datesrouter.get('/dates', async (req, res) => {
+datesRouter.get('/dates', async (req, res) => {
     const dates = await getAllDates();
     res.json({ success: true, message: `all dates`, payload: dates });
   });
 
 
-  datesrouter.post('/dates', async (req, res) => {
+  datesRouter.post('/dates', async (req, res) => {
     const { name, date } = req.body;
     console.log(name, date);
     const newDates= await datesQuery(
@@ -22,5 +22,5 @@ datesrouter.get('/dates', async (req, res) => {
     res.json({ success: true, message: `new date`, payload: newDates });
   });
   
-  export default datesrouter;
+  export default datesRouter;
   
