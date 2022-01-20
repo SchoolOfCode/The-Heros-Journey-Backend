@@ -1,6 +1,5 @@
 import pg from 'pg';
-// import { db } from '../config.js';
-
+console.log(process.env.DATABASE_URL);
 const quotesPool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
