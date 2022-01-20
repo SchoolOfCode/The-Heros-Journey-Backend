@@ -7,6 +7,7 @@ import logger from 'morgan';
 
 import router from './routes/quotes.js';
 
+
 const app = express();
 
 app.use(logger('dev'));
@@ -16,5 +17,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/quotes', router);
+app.use('/dates', router);
 
 export default app;

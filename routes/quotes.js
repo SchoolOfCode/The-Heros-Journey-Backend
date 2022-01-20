@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   res.json({ success: true, message: `all quotes`, payload: quotes });
 });
 
-// Post a quote
+// Allows new information
 router.post('/', async (req, res) => {
   const { name, quote } = req.body;
   console.log(name, quote);
