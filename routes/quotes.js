@@ -3,16 +3,16 @@ import quotesQuery from '../db/index.js';
 
 import express from 'express';
 
-const router = express.Router();
+const quotesrouter = express.Router();
 
 //Getting all quotes
-router.get('/', async (req, res) => {
+quotesrouter.get('/quotes', async (req, res) => {
   const quotes = await getAllQuotes();
   res.json({ success: true, message: `all quotes`, payload: quotes });
 });
 
 // Allows new information
-router.post('/', async (req, res) => {
+quotesrouter.post('/quotes', async (req, res) => {
   const { name, quote } = req.body;
   console.log(name, quote);
   const newQuote = await quotesQuery(
@@ -22,4 +22,4 @@ router.post('/', async (req, res) => {
   res.json({ success: true, message: `new quote`, payload: newQuote });
 });
 
-export default router;
+export default quotesrouter;
